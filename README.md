@@ -1,17 +1,12 @@
 # go
-
 ## Install
-
 ```sh
 npm install --save @blackglory/go
 # or
 yarn add @blackglory/go
 ```
 
-[IIFE]: https://en.wikipedia.org/wiki/Immediately_invoked_function_expression
-
 ## Usage
-
 ```ts
 import { go } from '@blackglory/go'
 
@@ -21,7 +16,6 @@ go(async () => {
 ```
 
 ## Why?
-
 [IIFE] is good until you forget to invoke it:
 
 ```ts
@@ -41,10 +35,10 @@ const arr = []
 })()
 ```
 
+[IIFE]: https://en.wikipedia.org/wiki/Immediately_invoked_function_expression
+
 ## API
-
 ### go
-
 ```ts
 function go<T>(fn: () => T): T
 ```
