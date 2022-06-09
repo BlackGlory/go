@@ -42,3 +42,13 @@ const arr = []
 ```ts
 function go<T>(fn: () => T): T
 ```
+
+### goMicrotask
+```ts
+function goMicrotask<T>(fn: () => Awaitable<T>): Promise<T>
+```
+
+### goMarcotask
+```ts
+function goMarcotask<T>(fn: () => Awaitable<T>): Promise<T>
+```
