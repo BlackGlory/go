@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/BlackGlory/go/compare/v1.0.0...v1.1.0) (2022-06-09)
+
+
+### Features
+
+* add goMicrotask, goMacrotask ([c3ab12e](https://github.com/BlackGlory/go/commit/c3ab12ee6ffc89fb42e81535f9c04fc8cbd8feec))
+
 ## [1.0.0](https://github.com/BlackGlory/go/compare/v0.1.1...v1.0.0) (2022-03-05)
 
 ### [0.1.1](https://github.com/BlackGlory/go/compare/v0.1.0...v0.1.1) (2021-12-04)
