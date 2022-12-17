@@ -1,5 +1,4 @@
 import { goMicrotask } from '@src/go-microtask'
-import '@blackglory/jest-matchers'
 import { getErrorPromise } from 'return-style'
 
 describe('goMicrotask', () => {
@@ -12,7 +11,6 @@ describe('goMicrotask', () => {
       queueMicrotask(() => count++)
       const result = await promise
 
-      expect(promise).toBePromise()
       expect(result).toBe(1)
       expect(fn).toBeCalledTimes(1)
     })
@@ -25,7 +23,6 @@ describe('goMicrotask', () => {
       const promise = goMicrotask(fn)
       const err = await getErrorPromise(promise)
 
-      expect(promise).toBePromise()
       expect(err).toBeInstanceOf(Error)
       expect(err?.message).toBe('foo')
       expect(fn).toBeCalledTimes(1)
@@ -41,7 +38,6 @@ describe('goMicrotask', () => {
       queueMicrotask(() => count++)
       const result = await promise
 
-      expect(promise).toBePromise()
       expect(result).toBe(1)
       expect(fn).toBeCalledTimes(1)
     })
@@ -52,7 +48,6 @@ describe('goMicrotask', () => {
       const promise = goMicrotask(fn)
       const err = await getErrorPromise(promise)
 
-      expect(promise).toBePromise()
       expect(err).toBeInstanceOf(Error)
       expect(err?.message).toBe('foo')
       expect(fn).toBeCalledTimes(1)

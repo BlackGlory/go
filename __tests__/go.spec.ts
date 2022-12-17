@@ -1,5 +1,4 @@
 import { go } from '@src/go'
-import '@blackglory/jest-matchers'
 import { getError, getErrorPromise } from 'return-style'
 
 describe('go', () => {
@@ -35,7 +34,6 @@ describe('go', () => {
       queueMicrotask(() => count++)
       const result = await promise
 
-      expect(promise).toBePromiseLike()
       expect(result).toBe(1)
       expect(fn).toBeCalledTimes(1)
     })
@@ -46,7 +44,6 @@ describe('go', () => {
       const promise = go(fn)
       const err = await getErrorPromise(promise)
 
-      expect(promise).toBePromiseLike()
       expect(err).toBeInstanceOf(Error)
       expect(err?.message).toBe('foo')
       expect(fn).toBeCalledTimes(1)

@@ -1,5 +1,4 @@
 import { goMacrotask } from '@src/go-macrotask'
-import '@blackglory/jest-matchers'
 import { getErrorPromise } from 'return-style'
 
 describe('goMacrotask', () => {
@@ -12,7 +11,6 @@ describe('goMacrotask', () => {
       queueMicrotask(() => count++)
       const result = await promise
 
-      expect(promise).toBePromise()
       expect(result).toBe(2)
       expect(fn).toBeCalledTimes(1)
     })
@@ -25,7 +23,6 @@ describe('goMacrotask', () => {
       const promise = goMacrotask(fn)
       const err = await getErrorPromise(promise)
 
-      expect(promise).toBePromise()
       expect(err).toBeInstanceOf(Error)
       expect(err?.message).toBe('foo')
       expect(fn).toBeCalledTimes(1)
@@ -41,7 +38,6 @@ describe('goMacrotask', () => {
       queueMicrotask(() => count++)
       const result = await promise
 
-      expect(promise).toBePromise()
       expect(result).toBe(2)
       expect(fn).toBeCalledTimes(1)
     })
@@ -52,7 +48,6 @@ describe('goMacrotask', () => {
       const promise = goMacrotask(fn)
       const err = await getErrorPromise(promise)
 
-      expect(promise).toBePromise()
       expect(err).toBeInstanceOf(Error)
       expect(err?.message).toBe('foo')
       expect(fn).toBeCalledTimes(1)
