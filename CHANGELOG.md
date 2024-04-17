@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/BlackGlory/go/compare/v1.1.3...v2.0.0) (2024-04-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* - It requires Node.js >= v18.17.0
+- CommonJS => ESM
+
+### Features
+
+* add `goGenerator`, `goAsyncGenerator` ([d135630](https://github.com/BlackGlory/go/commit/d135630e2df540d2d95690305161ebda76931fe0))
+
 ### [1.1.3](https://github.com/BlackGlory/go/compare/v1.1.2...v1.1.3) (2023-06-11)
 
 
