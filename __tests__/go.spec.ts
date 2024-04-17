@@ -1,10 +1,11 @@
-import { go } from '@src/go'
+import { describe, test, expect, vi } from 'vitest'
+import { go } from '@src/go.js'
 import { getError, getErrorPromise } from 'return-style'
 
 describe('go', () => {
   describe('sync', () => {
     test('return value', () => {
-      const fn = jest.fn().mockReturnValue('foo')
+      const fn = vi.fn().mockReturnValue('foo')
 
       const result = go(fn)
 
@@ -13,7 +14,7 @@ describe('go', () => {
     })
 
     test('throw error', () => {
-      const fn = jest.fn(() => {
+      const fn = vi.fn(() => {
         throw new Error('foo')
       })
 
@@ -28,7 +29,7 @@ describe('go', () => {
   describe('async', () => {
     test('resolved', async () => {
       let count = 0
-      const fn = jest.fn(async () => ++count)
+      const fn = vi.fn(async () => ++count)
 
       const promise = go(fn)
       queueMicrotask(() => count++)
@@ -39,7 +40,7 @@ describe('go', () => {
     })
 
     test('rejected', async () => {
-      const fn = jest.fn().mockRejectedValue(new Error('foo'))
+      const fn = vi.fn().mockRejectedValue(new Error('foo'))
 
       const promise = go(fn)
       const err = await getErrorPromise(promise)

@@ -1,11 +1,12 @@
-import { goMicrotask } from '@src/go-microtask'
+import { describe, test, expect, vi } from 'vitest'
+import { goMicrotask } from '@src/go-microtask.js'
 import { getErrorPromise } from 'return-style'
 
 describe('goMicrotask', () => {
   describe('sync', () => {
     test('return value', async () => {
       let count = 0
-      const fn = jest.fn(() => ++count)
+      const fn = vi.fn(() => ++count)
 
       const promise = goMicrotask(fn)
       queueMicrotask(() => count++)
@@ -16,7 +17,7 @@ describe('goMicrotask', () => {
     })
 
     test('throw error', async () => {
-      const fn = jest.fn(() => {
+      const fn = vi.fn(() => {
         throw new Error('foo')
       })
 
@@ -32,7 +33,7 @@ describe('goMicrotask', () => {
   describe('async', () => {
     test('resolved', async () => {
       let count = 0
-      const fn = jest.fn(async () => ++count)
+      const fn = vi.fn(async () => ++count)
 
       const promise = goMicrotask(fn)
       queueMicrotask(() => count++)
@@ -43,7 +44,7 @@ describe('goMicrotask', () => {
     })
 
     test('rejected', async () => {
-      const fn = jest.fn().mockRejectedValue(new Error('foo'))
+      const fn = vi.fn().mockRejectedValue(new Error('foo'))
 
       const promise = goMicrotask(fn)
       const err = await getErrorPromise(promise)
