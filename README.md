@@ -52,3 +52,22 @@ function goMicrotask<T>(fn: () => Awaitable<T>): Promise<T>
 ```ts
 function goMarcotask<T>(fn: () => Awaitable<T>): Promise<T>
 ```
+
+### goGenerator
+```ts
+function goGenerator<Yield, Next>(
+  fn: () =>
+  | void
+  | Generator<Yield, void, Next>
+): Generator<Yield, void, Next>
+```
+
+### goAsyncGenerator
+```ts
+function goAsyncGenerator<Yield, Next>(
+  fn: () =>
+  | void
+  | Generator<Yield, void, Next>
+  | AsyncGenerator<Yield, void, Next>
+): AsyncGenerator<Yield, void, Next>
+```
