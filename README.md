@@ -48,9 +48,9 @@ function go<T>(fn: () => T): T
 function goMicrotask<T>(fn: () => Awaitable<T>): Promise<T>
 ```
 
-### goMarcotask
+### goMacrotask
 ```ts
-function goMarcotask<T>(fn: () => Awaitable<T>): Promise<T>
+function goMacrotask<T>(fn: () => Awaitable<T>): Promise<T>
 ```
 
 ### goGenerator
